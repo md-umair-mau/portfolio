@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohammad Umair - Data Science Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_add.css">
+    <style>
+    body.night-mode {
+        background: #181818 !important;
+        color: #e0e0e0 !important;
+    }
+    nav, .nav-container {
+        transition: background 0.3s;
+    }
+    body.night-mode nav {
+        background: #232323 !important;
+        color: #fff !important;
+        box-shadow: 0 2px 20px rgba(0,0,0,0.3) !important;
+    }
+    body.night-mode .nav-link, body.night-mode .logo {
+        color: #fff !important;
+    }
+    body.night-mode .nav-link:hover {
+        color: #90caf9 !important;
+    }
+    body.night-mode .nav-menu {
+        background: #232323 !important;
+    }
+    body.night-mode .mobile-menu span {
+        background: #fff !important;
+    }
+    body.night-mode .btn {
+        background: #37474f !important;
+        color: #90caf9 !important;
+    }
+    body.night-mode .btn:hover {
+        background: #263238 !important;
+        color: #fff !important;
+    }
+    body.night-mode .section-title h2 {
+        color: #90caf9 !important;
+        text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+    body.night-mode .section-title p {
+        color: #e0e0e0 !important;
+    }
+    @media (max-width: 768px) {
+        .nav-container {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: 0.5rem !important;
+            padding: 1rem !important;
+        }
+        .nav-container > div,
+        .nav-menu {
+            width: 100%;
+            justify-content: flex-start !important;
+        }
+        .nav-menu {
+            margin-top: 0.5rem;
+        }
+        #live-time {
+            margin-top: 0.5rem;
+        }
+        #language-select, #theme-toggle, #night-toggle {
+            margin-top: 0.5rem;
+        }
+    }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav style="background: rgba(255, 255, 255, 0.98); box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 20px;">
+        <div class="nav-container" style="display: flex; align-items: center; justify-content: space-between;">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <img src="assets\profile.jpg" alt="Profile" style="width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 2px solid #667eea; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                <div class="logo" style="font-weight: 600; font-size: 1.3rem;">Mohammad Umair</div>
+                <img id="country-flag" src="https://flagcdn.com/24x18/in.png" alt="IN" style="width: 24px; height: 18px; border-radius: 3px;"> 
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <select id="language-select" title="Change Language" style="padding: 0.3rem 0.7rem; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem;">
+                    <option value="en">English</option>
+                    <option value="ar">العربية</option>
+                    <option value="hi">हिन्दी</option>
+                    <option value="es">Español</option>
+                </select>
+                <button id="theme-toggle" title="Toggle Color Theme" style="background: none; border: none; cursor: pointer; font-size: 1.3rem; margin-right: 0.5rem;"><i class="fas fa-palette"></i></button>
+                <button id="night-toggle" title="Toggle Night Mode" style="background: none; border: none; cursor: pointer; font-size: 1.3rem;"><i class="fas fa-moon"></i></button>
+                <div class="mobile-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav
+
+    <!-- Hero Section -->
+    <section id="home" class="hero" style="height: 55vh; min-height: 320px; display: flex; align-items: center; justify-content: center;">
+        <div class="floating-shapes">
+            <div class="shape"><i class="fas fa-chart-bar" style="font-size: 48px;"></i></div>
+            <div class="shape"><i class="fas fa-brain" style="font-size: 48px;"></i></div>
+            <div class="shape"><i class="fas fa-code" style="font-size: 48px;"></i></div>
+        </div>
+        <div class="hero-content" style="padding: 2rem 1rem; background: rgba(255,255,255,0.05); border-radius: 18px; box-shadow: 0 2px 12px rgba(0,0,0,0.08);">
+            <h1>Mohammad Umair</h1>
+            <p>Data Science &amp; Analytics Student | Future Data Scientist</p>
+            <div style="margin-top: 1.5rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="https://wa.me/919120306697" class="btn" target="_blank" style="display: flex; align-items: center; gap: 0.5rem;"><i class="fab fa-whatsapp"></i> Get In Touch</a>
+                <a id="download-resume" class="btn" href="#" download style="background: #667eea; color: #fff;">
+                    <i class="fas fa-file-download"></i> <span style="font-size:1.3rem;"></span> Download Resume
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-white">
+        <div class="container">
+            <div class="section-title fade-in visible">
+                <h2>About Me</h2>
+                <p>Passionate about transforming data into actionable insights</p>
+            </div>
+            <div class="about-content">
+                <div class="about-content-horizontal" style="display: flex; flex-direction: row; gap: 2.5rem; align-items: flex-start; justify-content: center; width: 100%; flex-wrap: wrap;">
+                    <div class="stats fade-in visible" style="display: flex; flex-direction: row; gap: 1.2rem; flex: 1 1 320px; justify-content: space-between; align-items: stretch;">
+                        <div class="stat-item" style="flex: 1 1 80px; min-width: 80px; background: #fff; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.04); padding: 0.7rem 0.5rem; text-align: center;">
+                            <div class="stat-number">5+</div>
+                            <div class="stat-label">Projects</div>
+                        </div>
+                        <div class="stat-item" style="flex: 1 1 80px; min-width: 80px; background: #fff; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.04); padding: 0.7rem 0.5rem; text-align: center;">
+                            <div class="stat-number">8+</div>
+                            <div class="stat-label">Technologies</div>
+                        </div>
+                        <div class="stat-item" style="flex: 1 1 80px; min-width: 80px; background: #fff; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.04); padding: 0.7rem 0.5rem; text-align: center;">
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">Certifications</div>
+                        </div>
+                        <div class="stat-item" style="flex: 1 1 80px; min-width: 80px; background: #fff; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.04); padding: 0.7rem 0.5rem; text-align: center;">
+                            <div class="stat-number">3.8</div>
+                            <div class="stat-label">GPA</div>
+                        </div>
+                    </div>
+                    <div class="about-text fade-in visible" style="max-width: 600px; flex: 2 1 340px;">
+                        <h3>Hello, I'm Mohammad Umair</h3>
+                        <p>Final-year B.Tech student in Data Science &amp; Analytics. Skilled in extracting insights, building smart solutions, and mastering modern machine learning tools.</p>
+                        <p>Seeking opportunities to apply my skills and contribute to impactful, data-driven projects.</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section-gray">
+        <div class="container">
+            <div class="section-title fade-in visible">
+                <h2>Technical Skills</h2>
+                <p>My expertise spans across various domains of data science and technology</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category fade-in visible">
+                    <h3><i class="fas fa-code"></i> Programming Languages</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Python</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>R</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>SQL</span>
+                            <span>88%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 88%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Java</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in visible">
+                    <h3><i class="fas fa-brain"></i> Machine Learning</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Scikit-learn</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>TensorFlow</span>
+                            <span>82%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 82%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Keras</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Deep Learning</span>
+                            <span>78%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 78%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in visible">
+                    <h3><i class="fas fa-chart-line"></i> Data Analysis</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Pandas</span>
+                            <span>92%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 92%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>NumPy</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Matplotlib/Seaborn</span>
+                            <span>88%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 88%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Statistical Analysis</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in visible">
+                    <h3><i class="fas fa-tools"></i> Tools &amp; Technologies</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Jupyter Notebook</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 95%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Git/GitHub</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Tableau</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Power BI</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section-white">
+        <div class="container">
+            <div class="section-title fade-in visible">
+                <h2>Featured Projects</h2>
+                <p>A showcase of my data science projects and solutions</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card fade-in visible">
+                    <div class="project-image">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Healthcare Prediction System</h3>
+                        <p class="project-description">Machine learning model to predict patient health outcomes using clinical data, achieving 94% accuracy with ensemble methods.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Scikit-learn</span>
+                            <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">Flask</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in visible" style="box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 15px;">
+                    <div class="project-image">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Sales Analytics Dashboard</h3>
+                        <p class="project-description">Interactive dashboard analyzing sales trends, customer behavior, and revenue patterns for business intelligence insights.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Tableau</span>
+                            <span class="tech-tag">SQL</span>
+                            <span class="tech-tag">Plotly</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in visible">
+                    <div class="project-image">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Sentiment Analysis Tool</h3>
+                        <p class="project-description">NLP-based sentiment analysis application for social media posts using deep learning and transformer models.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">TensorFlow</span>
+                            <span class="tech-tag">NLTK</span>
+                            <span class="tech-tag">Streamlit</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in visible">
+                    <div class="project-image">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">E-commerce Recommendation Engine</h3>
+                        <p class="project-description">Collaborative filtering recommendation system improving customer engagement and sales conversion rates by 35%.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Surprise</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">Django</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in visible" style="box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 15px;">
+                    <div class="project-image">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Computer Vision Object Detection</h3>
+                        <p class="project-description">Real-time object detection system using YOLO algorithm for autonomous vehicle applications and traffic monitoring.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">OpenCV</span>
+                            <span class="tech-tag">YOLO</span>
+                            <span class="tech-tag">PyTorch</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in visible" style="box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 15px;">
+                    <div class="project-image">
+                        <i class="fas fa-money-bill-trend-up"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Stock Price Predictor</h3>
+                        <p class="project-description">Time series analysis and LSTM neural network model for predicting stock prices with technical indicators integration.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">TensorFlow</span>
+                            <span class="tech-tag">Yahoo Finance API</span>
+                            <span class="tech-tag">Matplotlib</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-gray">
+        <div class="container">
+            <div class="section-title fade-in visible">
+                <h2>Let's Connect</h2>
+                <p>Ready to discuss opportunities and collaborate on exciting projects</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info fade-in visible">
+                    <h3>Get In Touch</h3>
+                    <p>I'm actively seeking opportunities in data science, machine learning, and analytics. Let's discuss how I can contribute to your team!</p>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Email</strong>
+                            <p>m.umair.mau@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <strong>Phone</strong>
+                            <p>+91 91 2030 6697</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Location</strong>
+                            <p>Kanpur, Uttar Pradesh, India</p>
+                        </div>
+                    </div>
+
+                <!-- Certifications Section -->
+                <section id="certifications" class="section-white">
+                    <div class="container">
+                        <div class="section-title fade-in visible">
+                            <h2>Certifications</h2>
+                            <p>Recognized achievements in data science and analytics</p>
+                        </div>
+                        <div class="certifications-list fade-in visible" style="display: flex; flex-direction: column; gap: 1.2rem;">
+                            <div class="certification-item" style="background: #f7f7f7; border-radius: 10px; padding: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                                <strong>IBM Data Science Professional Certificate</strong><br>
+                                <span style="color: #667eea;">Coursera | 2024</span>
+                            </div>
+                            <div class="certification-item" style="background: #f7f7f7; border-radius: 10px; padding: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                                <strong>Google Data Analytics Certificate</strong><br>
+                                <span style="color: #667eea;">Coursera | 2023</span>
+                            </div>
+                            <div class="certification-item" style="background: #f7f7f7; border-radius: 10px; padding: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                                <strong>Microsoft Certified: Azure Data Scientist Associate</strong><br>
+                                <span style="color: #667eea;">Microsoft | 2025</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/mohammad-umair-318605256/" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/md-umair-mau" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="https://www.hackerrank.com/m_umair_mau" class="social-link"><i class="fab fa-hackerrank"></i></a>
+                        <a href="mailto:md.umair.mau@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+
+                <div class="contact-info fade-in visible">
+                    <h3>Education &amp; Goals</h3>
+                    <div style="margin-bottom: 2rem;">
+                        <h4 style="color: #667eea; margin-bottom: 0.5rem;">Current Education</h4>
+                        <p><strong>B.Tech in Data Science &amp; Analytics</strong></p>
+                        <p>Final Year Student | Expected Graduation: 2025</p>
+                        <p>Current GPA: 3.8/4.0</p>
+                    </div>
+
+                    <div style="margin-bottom: 2rem;">
+                        <h4 style="color: #667eea; margin-bottom: 0.5rem;">Career Objectives</h4>
+                        <ul style="color: #666; line-height: 1.8;">
+                            <li>Data Scientist roles in tech companies</li>
+                            <li>Machine Learning Engineer positions</li>
+                            <li>Business Intelligence Analyst opportunities</li>
+                            <li>Research roles in AI/ML</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 style="color: #667eea; margin-bottom: 0.5rem;">Key Achievements</h4>
+                        <ul style="color: #666; line-height: 1.8;">
+                            <li>Dean's List for academic excellence</li>
+                            <li>Winner of college Data Science hackathon</li>
+                            <li>Published research paper on ML applications</li>
+                            <li>Internship at leading analytics firm</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Time & IP above footer -->
+    <div id="footer-info" style="width: 100%; text-align: center; margin: 2rem 0 0 0;">
+        <span id="footer-time" style="font-size: 1.1rem; font-weight: 500; margin-right: 1.5rem;"></span>
+        <span id="footer-ip" style="font-size: 1.1rem; font-weight: 500;"></span>
+    </div>
+    <!-- Footer -->
+    <footer style="background: linear-gradient(90deg,#232323,#667eea); color: #fff; padding: 2.5rem 0;">
+        <div class="container" style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+            <div style="font-size: 1.3rem; font-weight: 600;">
+                Made with <span style="font-size:1.5rem;">❤️</span> in <span style="font-size:1.5rem;">🇮🇳</span> | Data Science <span style="font-size:1.5rem;">⚛</span> and Analytics <span style="font-size:1.5rem;">📊</span>
+            </div>
+            <div style="font-size: 1rem; color: #e0e0e0;">
+                🤖 Portfolio by Mohammad Umair <span style="font-size:1.2rem;">✨</span> | All rights reserved © 2025
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="script_dynamic.js"></script>
+
+
+
+</body></html>
